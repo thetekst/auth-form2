@@ -37,13 +37,13 @@ class User
 			$id = $this->data()->id;
 		}
 
-		if (!$this->_db->update('user', $id, $fields)) {
+		if (!$this->_db->update('users', $id, $fields)) {
 			throw new Exception("Не удалось обновить профиль");
 		}
 	}
 
 	public function create($fields = array()) {
-		if(!$this->_db->insert('user', $fields)) {
+		if(!$this->_db->insert('users', $fields)) {
 			throw new Exception("Ошибка создания аккаунта");
 		}
 	}
@@ -51,7 +51,7 @@ class User
 	public function find($user = null) {
 		if($user) {
 			$field = (is_numeric($user)) ? 'id' : 'email';
-			$data = $this->_db->get('user', array($field, '=', $user));
+			$data = $this->_db->get('users', array($field, '=', $user));
 
 			if ($data->count()) {
 				$this->_data = $data->first();
@@ -96,7 +96,7 @@ class User
 
 	public function hasPermission($key) {
 		$group = $this->_db->get('groups', array('id', '=', $this->data()->group));
-		
+
 		if ($group->count()) {
 			$permissions = json_decode($group->first()->permissions, true);
 

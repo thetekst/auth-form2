@@ -55,10 +55,18 @@ if (Input::exists()) {
 	<hr>
 	<b>Редактирование:</b>
 	<form action="" method="post" autocomplete="off" enctype="multipart/form-data" accept-charset="utf-8">
-		<input type="email" name="email" id="" placeholder="E-mail" required="required" value="<?php echo escape($user->data()->email);?>" disabled="disabled"><br>
-		<input type="text" name="group" id="" placeholder="Группа" value="<?php echo escape($user->data()->group);?>"><br>
-		<input type="text" name="name" id="" placeholder="Имя" value="<?php echo escape($user->data()->name);?>"><br>
-		<input type="text" name="lname" id="" placeholder="Фамилия" value="<?php echo escape($user->data()->lname);?>"><br>
+		<label for="email">E-mail:
+			<input type="email" name="email" id="" placeholder="E-mail" required="required" value="<?php echo escape($user->data()->email);?>" disabled="disabled">
+		</label><br>
+		<label for="group">Группа:
+			<input type="text" name="group" id="" placeholder="Группа" value="<?php echo escape($user->data()->group);?>" disabled="disabled">
+		</label><br>
+		<label for="name">Имя:
+			<input type="text" name="name" id="" placeholder="Имя" value="<?php echo escape($user->data()->name);?>">
+		</label><br>
+		<label for="lname">Фамилия:
+			<input type="text" name="lname" id="" placeholder="Фамилия" value="<?php echo escape($user->data()->lname);?>">
+		</label><br>
 		<input type="submit" value="Сохранить">
 		<input type="hidden" name="token" value="<?php echo Token::generate();?>">
 	</form>

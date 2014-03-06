@@ -11,7 +11,7 @@ if (Input::exists()) {
 				'min' => 2,
 				'max' => 20,
 				'min' => 2,
-				'unique' => 'user', // table name
+				'unique' => 'users', // table name
 			),
 			'pass' => array(
 				'required' => true,

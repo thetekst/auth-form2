@@ -1,15 +1,6 @@
 <?php
 require_once('core/init.php');
 
-//echo Session::get(Config::get('session/session_name'));
-
-/*$res = DB::getInstance();
-
-//$p = $res->get('user', array('id', '=', 27));
-$p = $res->get('user', array('id', '=', 27));
-
-print_r($p);*/
-
 if (Session::exists('home')) {
 	echo '<p>'.Session::flash('home').'</p>';
 }
@@ -26,7 +17,11 @@ if ($user->isLoggedIn()) {
 	<?php
 
 	if ($user->hasPermission('moderator')) {
-		echo 'moderator';
+		echo 'moderator<br>';
+	}
+
+	if ($user->hasPermission('admin')) {
+		echo 'admin<br>';
 	}
 
 } else {
