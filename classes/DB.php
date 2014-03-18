@@ -109,7 +109,7 @@ class DB
 		$x = 1;
 
 		foreach ($fields as $name => $value) {
-			$set .= "{$name} = ?";
+			$set .= "`{$name}` = ?";
 			if ($x < count($fields)) {
 				$set .= ', ';
 			}
