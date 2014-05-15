@@ -20,6 +20,7 @@ class DB
 				Config::get('mysql/username'),
 				Config::get('mysql/password')
 			);
+			$this->_pdo->exec('SET NAMES utf8');
 		} catch (PDOExceprion $e) {
 			die($e->getMessage());
 		}
