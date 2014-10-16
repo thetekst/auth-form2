@@ -19,7 +19,10 @@ $GLOBALS['config'] = array(
 );
 
 spl_autoload_register(function($class) {
-	require_once('classes/'.$class.'.php');
+	$path = dirname(__FILE__).'/classes/'.$class.'.php';
+	if(is_file($path)) {
+		require_once($path);
+	}
 });
 
 require_once('functions/sanitize.php');
